@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - SVG Filter Image Distortions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Be+Vietnam:400,700,800&amp;display=swap'>
+    <style>
+
+
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: calc(100vh - 13rem);
+            position: relative;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .distort {
+            position: absolute;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        .distort__img {
+            opacity: 0;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            text-align: center;
+            font-size: 9vh;
+            font-weight: normal;
+            line-height: 1.5;
+        }
+
+        .menu__link {
+            z-index: 99;
+            color: var(--color-link);
+            position: relative;
+            white-space: nowrap;
+            margin-bottom: 0.2em;
+            transition: color 1s ease;
+        }
+        .menu__link span {
+            display: inline-block;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+
+        <section class="content">
+            <svg class="distort js-distort" height="500" width="700" viewBox="0 0 700 700">
+                <filter id="distortionFilter">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.91 0.103" numOctaves="2" seed="3"
+                        stitchTiles="noStitch" x="0%" y="0%" width="100%" height="100%" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R"
+                        yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" filterUnits="userSpaceOnUse" />
+                </filter>
+                <g filter="url(#distortionFilter)">
+                    <image class="distort__img" x="10" y="10"
+                        xlink:href="https://source.unsplash.com/updW-QUccFE/1200X1200" height="600" width="700" />
+                    <image class="distort__img" x="50" y="50"
+                        xlink:href="https://source.unsplash.com/164_6wVEHfI/1200X1200" height="600" width="700" />
+                    <image class="distort__img" x="50" y="50"
+                        xlink:href="https://source.unsplash.com/_fOL6ebfECQ/1200X1200" height="600" width="700" />
+                    <image class="distort__img" x="50" y="50"
+                        xlink:href="https://source.unsplash.com/l8p1aWZqHvE/1200X1200" height="600" width="700" />
+                </g>
+            </svg>
+            <nav class="menu js-menu">
+                <a href="#" class="menu__link">Classic Air</a>
+                <a href="#" class="menu__link">Nike Free</a>
+                <a href="#" class="menu__link">Jordans Red</a>
+                <a href="#" class="menu__link">Air Max</a>
+            </nav>
+        </section>
+
+        <section id="section1"> 
+
+
+        </section>
+
+    <!-- partial -->
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script>
+        const body = document.body;
+        const docEl = document.documentElement;
+
+        const lineEq = (y2, y1, x2, x1, currentVal) => {
+            // y = mx + b 
+            var m = (y2 - y1) / (x2 - x1),
+                b = y1 - m * x1;
+            return m * currentVal + b;
+        };
+
+        const lerp = (a, b, n) => (1 - n) * a + n * b;
+
+        const distance = (x1, x2, y1, y2) => {
+            var a = x1 - x2;
+            var b = y1 - y2;
+            return Math.hypot(a, b);
+        };
+
+        const getMousePos = (e) => {
+            let posx = 0;
+            let posy = 0;
+            if (!e) e = window.event;
+            if (e.pageX || e.pageY) {
+                posx = e.pageX;
+                posy = e.pageY;
+            } else if (e.clientX || e.clientY) {
+                posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+            }
+            return {
+                x: posx,
+                y: posy
+            }
+        }
+
+        let winsize;
+        const calcWinsize = () => winsize = {
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+        calcWinsize();
+        window.addEventListener('resize', calcWinsize);
+
+        const feDisplacementMapEl = document.querySelector('feDisplacementMap');
+
+        class Menu {
+            constructor() {
+                this.DOM = {
+                    svg: document.querySelector('svg.js-distort'),
+                    menu: document.querySelector('nav.js-menu')
+                };
+                this.DOM.imgs = [...this.DOM.svg.querySelectorAll('g > image')];
+                this.DOM.menuLinks = [...this.DOM.menu.querySelectorAll('.menu__link')];
+                this.mousePos = {
+                    x: winsize.width / 2,
+                    y: winsize.height / 2
+                };
+                this.lastMousePos = {
+                    translation: {
+                        x: winsize.width / 2,
+                        y: winsize.height / 2
+                    },
+                    displacement: {
+                        x: 0,
+                        y: 0
+                    }
+                };
+                this.dmScale = 0;
+                this.current = -1;
+                this.initEvents();
+                requestAnimationFrame(() => this.render());
+            }
+            initEvents() {
+                window.addEventListener('mousemove', ev => this.mousePos = getMousePos(ev));
+
+                this.DOM.menuLinks.forEach((item, pos) => {
+
+                    const mouseenterFn = () => {
+                        if (this.current !== -1) {
+                            gsap.set(this.DOM.imgs[this.current], {
+                                opacity: 0
+                            });
+                        }
+                        this.current = pos;
+
+                        if (this.fade) {
+                            gsap.to(this.DOM.imgs[this.current], 0.1, {
+                                ease: Quad.easeOut,
+                                opacity: 1
+                            });
+                            this.fade = false;
+                        } else {
+                            gsap.set(this.DOM.imgs[this.current], {
+                                opacity: 1
+                            });
+                        }
+
+
+                    };
+                    item.addEventListener('mouseenter', mouseenterFn);
+                });
+
+                const mousemenuenterFn = () => this.fade = true;
+                const mousemenuleaveFn = () => gsap.to(this.DOM.imgs[this.current], 0.1, {
+                    ease: Quad.easeOut,
+                    opacity: 0
+                });
+
+                this.DOM.menu.addEventListener('mouseenter', mousemenuenterFn);
+                this.DOM.menu.addEventListener('mouseleave', mousemenuleaveFn);
+            }
+            render() {
+                this.lastMousePos.translation.x = lerp(this.lastMousePos.translation.x, this.mousePos.x, 0.1);
+                this.lastMousePos.translation.y = lerp(this.lastMousePos.translation.y, this.mousePos.y, 0.1);
+                this.DOM.svg.style.transform =
+                    `translateX(${(this.lastMousePos.translation.x-winsize.width/2)}px) translateY(${this.lastMousePos.translation.y-winsize.height/2}px)`;
+
+                // Scale goes from 0 to 100 for mouseDistance values between 0 to 100
+                this.lastMousePos.displacement.x = lerp(this.lastMousePos.displacement.x, this.mousePos.x, 0.1);
+                this.lastMousePos.displacement.y = lerp(this.lastMousePos.displacement.y, this.mousePos.y, 0.1);
+                const mouseDistance = distance(this.lastMousePos.displacement.x, this.mousePos.x, this.lastMousePos
+                    .displacement.y, this.mousePos.y);
+                this.dmScale = Math.min(mouseDistance, 100);
+                feDisplacementMapEl.scale.baseVal = this.dmScale;
+                requestAnimationFrame(() => this.render());
+            }
+        }
+
+        new Menu();
+    </script>
+
+</body>
+
+</html>

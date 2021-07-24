@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum kit</title>
+    <link rel="stylesheet" href="assets/css/style1.css">
+</head>
+<body>
+    <div class="keys">
+        <div data-key="65" class="key">
+            <kbd>A</kbd>
+            <span class="sound">도</span>
+        </div>
+        <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span class="sound">레</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span class="sound">미</span>
+        </div>
+        <div data-key="70" class="key">
+            <kbd>F</kbd>
+            <span class="sound">파</span>
+        </div>
+        <div data-key="71" class="key">
+            <kbd>G</kbd>
+            <span class="sound">솔</span>
+        </div>
+    </div>
+    
+    <audio data-key="65" src="./assets/music/1.mp3"></audio>
+    <audio data-key="83" src="./assets/music/2.mp3"></audio>
+    <audio data-key="68" src="./assets/music/3.mp3"></audio>
+    <audio data-key="70" src="./assets/music/5.mp3"></audio>
+    <audio data-key="71" src="./assets/music/4.mp3"></audio>
+
+
+<script>
+    document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
+    function playSound(e){
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //애니메이션 주기 위해서 div 태그 변수로 지정.
+        if(!audio) return;
+        audio.currentTime = 0; //오디오 현재 시간이 0이라고 말하면 시작 부분으로 되감는다.
+        audio.play();
+        // 키를 연속으로 눌렀을 때 재생되는데 시간이 걸려 잘 오디오가 나오는데 시간이 걸림. 그래서 도트플레이?를 넣음. 요소의 시작 부분으로 되감기 하는 것. 계속해서 시작으로 되감기 하는 것.
+        key.classList.add('playing');
+    }
+    
+    
+    function removeTransition(e){
+        if(e.propertyName !== 'transform') return;
+        this.classList.remove('playing');
+    }
+    
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition
+    ));
+
+    window.addEventListener('keydown', playSound);
+</script>
+
+</body>
+</html>

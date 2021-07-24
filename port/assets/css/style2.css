@@ -1,0 +1,187 @@
+/* layout */
+#contents {}
+#section1 {
+    height: 200vh;
+    background: #F3EEE8;
+    position: relative;
+    z-index: 6000;
+}
+#section2 {
+    height: 3000px;
+    background: #000;
+    position: relative;
+    z-index: 5000;
+}
+#section3 {
+    height: 3000px;
+    background: red;
+    position: relative;
+    z-index: 4000;
+}
+#section4 {
+    height: 4000px;
+    background: blue;
+    position: relative;
+    z-index: 5000;
+}
+#section5 {}
+#section6 {}
+
+/* scroll */
+.scroll {
+    position: fixed;
+    left: 20px; top: 20px;  
+    z-index: 100000;
+}
+
+/* header */
+#header {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    /* backdrop-filter: blur(10px); */
+    z-index: 1000;
+}
+#header h1 {
+    flex: 0 0 20%;
+    font-size: 40px;
+    line-height: 0.8;
+    text-align: left;
+    padding-left: 10px;
+}
+#header h1 em {
+    display: block;
+    padding-left: 10px;
+    font-style: italic;
+}
+#header nav {
+    flex: 0 0 60%;
+    display: flex;
+    justify-content: center;
+}
+#header nav span {
+    width: 50px;
+    height: 1px;
+    background: #000;
+    display: block;
+    margin-bottom: 8px;
+}
+#header .part {
+    flex: 0 0 20%;
+    text-align: right;
+    padding-top: 20px;
+}
+#header .part span {
+    font-size: 4vw;
+    padding-right: 10px;
+}
+
+/* sec1 */
+.sec1 {}
+.sec1 .main-text { 
+    padding-top: 30vh;
+    text-align: center;
+    font-family: Italiana;
+    font-size: 10vw;
+    line-height: 0.8;
+}
+.sec1 .main-text div {
+    position: relative;
+    z-index: 10;
+}
+.sec1 .main-text div span {
+    opacity: 0;
+    transform: translateY(50px);
+    display: inline-block;
+    min-width: 40px;
+}
+
+.sec1 .main-text .last {
+    font-size: 40vw;
+    color: #80BBA0;
+    margin-top: -20vh;
+    z-index: 5;
+    padding-bottom: 20vh;
+    position: relative;
+}
+
+.sec1 .main-text .last svg {
+   
+}
+.sec1 .main-text .last svg text {
+    
+}
+.sec1 .main-text .last.show svg text{
+    animation: stroke 2s forwards;
+}
+.sec1 .main-text .last {
+    background: #ccc;
+}
+.sec1 .main-text .last .leaf1 {
+    width: 7vw; 
+    position: absolute;
+    left: 14vw; top: 26vh;
+    z-index: 90;
+    opacity: 0;
+    
+}
+.sec1 .main-text .last.show .leaf1 {
+    opacity: 1;
+}
+
+
+@keyframes stroke {
+    0% {
+        fill: rgba(120, 184, 154, 0); 
+        stroke: rgba(120, 184, 154, 1);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+    }
+    70%  {
+        fill: rgba(120, 184, 154, 0); 
+        stroke: rgba(120, 184, 154, 1);
+    }
+    80%  {
+        fill: rgba(120, 184, 154, 0); 
+        stroke: rgba(120, 184, 154, 1);
+        stroke-width: 1;
+    }
+    100% {
+        fill: rgba(120, 184, 154, 1); 
+        stroke: rgba(120, 184, 154, 0);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+}
+
+.circle1 {
+    position: absolute;
+    right: 10%; top: 10%;
+    width: 150px; height: 150px;
+    background: #aadcc2;
+    border-radius: 50%;
+}
+
+/* sec3 */
+.sec3 {
+    position: fixed;
+    left: 0; top: 0;
+    overflow: hidden;
+    width: 2000px;
+}
+.sec3 > div {
+    width: 500px;
+    height: 100vh;
+    float: left;
+}
+.sec3 > div:nth-child(1){background: rgb(63, 83, 214);}
+.sec3 > div:nth-child(2){background: rgb(94, 125, 102);}
+.sec3 > div:nth-child(3){background: rgb(134, 63, 63);}
+.sec3 > div:nth-child(4){background: rgb(234, 114, 114);}

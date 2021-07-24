@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/practice.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+</head>
+
+<body>
+    <div class="menu-wrap">
+        <div class="menu-toggle">
+            <a href="#" class="menu-link">
+                <span class="menu-icon">
+                    <span class="menu-line menu-line-1"></span>
+                    <span class="menu-line menu-line-2"></span>
+                </span>
+
+                <span class="menu-circle">
+                </span>
+
+            </a>
+        </div>
+
+        <div class="menu-overlay">
+            <div class="overlay-content">
+                <p>Menu Content</p>
+                <p>second content</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="allwrap">
+        안녕하세용 야에셩이이
+    </div>
+    <script>
+        $(function () {
+
+            /* LOCAL STORAGE START */
+            // To reset your local storage
+            localStorage.removeItem('learnMenu');
+
+            $(".menu-link").click(function (e) {
+                e.preventDefault();
+
+                /* LOCAL STORAGE START */
+                localStorage.setItem('learnMenu', 'learned');
+                
+                /* LOCAL STORAGE END */
+                $(".menu-overlay").toggleClass("menu-open");
+                $(".menu-toggle").toggleClass("menu-open");
+            });
+        });
+    </script>
+</body>
+
+</html>

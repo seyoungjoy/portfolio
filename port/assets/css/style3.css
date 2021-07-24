@@ -1,0 +1,283 @@
+@charset "utf-8";
+
+/* layout */
+#contents {}
+#section1 {
+    background: #F3EEE8;
+    position: relative;
+    z-index:10;
+}
+#section2 {
+    background: #E3DACD;
+}
+#section3 {
+    background: #F3EEE8;
+    /* 한 페이지를 꼭 1920 1280에 안 맞추고 세로로 길게 한페이지를 늘려도 큰 문제는 없는건지? */
+}
+#section4 {
+    background: #e5e5e5;
+}
+#section5 {
+    background: #FFE699;
+
+}
+#footer {
+    background: #F6BAC6;
+}
+
+/* 공통바 */
+.bottom_bar{
+    height: 50px;
+    width: 100%;
+    
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+.bottom_bar p{
+    width:360px;
+    height:40px;
+    
+    border-radius: 40px 40px 0 0;
+    text-align: center;
+    position:absolute;
+    bottom:2%;
+    left:50%;
+    transform: translateX(-50%);
+    padding:22px 0 15px;
+    font-size:16px;
+}
+
+/* header */
+#header {
+    position:fixed;
+    left:0; top:0;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding:20px; */
+    box-sizing:border-box;
+    z-index: 100;
+}
+#header h1{
+    flex:0 0 10%;
+    font-size:3vw;
+    line-height:0.55;
+    text-align:center;
+
+}
+#header h1 em{
+    display:block;
+    font-style:italic;
+}
+#header nav{
+    flex:0 0 80%;
+    text-align:center;
+    cursor: pointer;
+}
+#header nav span{
+    display:block;
+    width:40px;
+    height:2px;
+    margin:8px auto;
+    background:#333;
+}
+
+#header .part{
+    flex: 0 0 10%;
+    text-align: right;
+    padding-top:20px;
+}
+#header .part span{
+    font-size:4vw;
+    padding-right:10px;
+}
+
+
+/* sec1 */
+.sec1 { 
+    padding:18vw 0 40vw;
+}
+.sec1 .main-text{
+    text-align: center;
+    font-family:Italiana;
+    font-size:10vw;
+    line-height: 0.85;
+    position: relative;
+    z-index:50;
+}
+.sec1 .main-text div{
+    position: relative;
+    z-index:100;
+}
+
+.sec1 .main-text div span{
+    opacity:0;
+    transform:translateY(50px);
+    display: inline-block;
+    min-width:38px;
+}
+
+.sec1 .main-text .m3{
+    margin-right:29%;
+    line-height:0.9;
+}
+
+.sec1 .main-text .m4{
+    line-height:0.5;
+}
+.sec1 .main-text .blak{
+    display: flex;
+    align-items: center;
+    font-size:1.1vw;
+    position:absolute;
+    top: 65%;
+    right: 30%;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.sec1 .main-text .blak img{
+    width:0.78vw;
+    height:4.4vw;
+}
+.sec1 .main-text .blak p{
+    margin:0 4vw; 
+}
+
+.sec1 .main-sub svg{
+    width: 51vw; height: 55vw;
+    position: absolute;
+    top:32%;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.sec1 .main-sub svg .last{
+    fill: rgba(120, 184, 154, 0); 
+}
+
+.sec1 .main-sub svg .last.show{
+    animation: stroke 1.5s forwards;
+}
+
+@keyframes stroke {
+0%   {
+    fill: rgba(72,138,204,0); stroke: rgba(120, 184, 154, 1);
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 2;
+    }
+70%  {fill: rgba(72,138,204,0); stroke: rgba(120, 184, 154, 1);}
+80%  {
+    fill: rgba(72,138,204,0); stroke: rgba(120, 184, 154, 1);
+    stroke-width: 3;
+    }
+100% {
+    fill: rgba(120, 184, 154, 1); stroke: rgba(120, 184, 154, 0);
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+    }
+}
+
+.sec1 .main-sub .front{
+    font-size:2.5vw;
+    text-align: center;
+    position:absolute;
+    top:73%;
+    left:50%;
+    transform:translate(-50%, 50px);
+    z-index:100;
+    color:#333;
+    opacity:0;
+}
+.sec1 .main-sub .leaf{
+
+}
+.sec1 .main-sub .leaf div{
+    width:15vw;
+    height:15vw;
+    background-repeat:no-repeat;
+    background-size: contain;
+    position:absolute;
+    z-index:200;
+    opacity:0;
+}
+.sec1 .main-sub .leaf .l1{
+    background-image:url(../img/leaf1.svg);
+    bottom: 19.9%;
+    left: 65%;
+    width: 5.57vw;
+    height: 2.64vw;
+    transform:translateY(50px);
+}
+.sec1 .main-sub .leaf .l2{
+    background-image:url(../img/leaf2.svg);
+    bottom: 17.5%;
+    right: 29%;
+    width: 2.75vw;
+    height: 6.32vw;
+    transform:translateY(50px);
+}
+.sec1 .main-sub .leaf .l3{
+    background-image:url(../img/leaf3.svg);
+    bottom: 31%;
+    left: 22.9%;
+    width: 11.125vw;
+    height: 11.27vw;
+    transform:translate(-50px, -50px);
+}
+
+
+
+/* 장식용 circle */
+.circle{
+    
+}
+.circle>div{
+    position:absolute; /*고정이 안됩니다...*/
+    width:6vw; height:6vw;
+    background:#aadcc2;
+    border-radius:50%;
+}
+.circle .c1{
+    right:14%; top:5%;
+}
+.circle .c2{
+    right:9%; top:20%;
+    width:2.5vw; height:2.5vw;
+}
+.circle .c3{
+    right:9%; top:41%; 
+    width:1.8vw; height:1.8vw;
+}
+.circle .c4{
+    right:15%; bottom:42%; 
+    width:3vw; height:3vw;
+}
+.circle .c5{
+    right:11%; bottom:34%;
+    width:2vw; height:2vw;
+}
+.circle .c6{
+    left:24%; top:8%; 
+    width:2vw; height:2vw;
+}
+.circle .c7{
+    left:5%; bottom:44%; 
+    width:3vw; height:3vw;
+}
+.circle .c8{
+    left:15%; bottom:41%; 
+    width:1vw; height:1vw;
+}
+.circle .c9{
+    left:12%; bottom:18%; 
+    width:2.5vw; height:2.5vw;
+}
+.circle .c10{
+    left:19%; bottom:6%; 
+    width:1.5vw; height:1.5vw;
+}
+/* 이런 이미지들의 포지션을 어떻게 잡고 넣어줘야할지 모르겠음... */
