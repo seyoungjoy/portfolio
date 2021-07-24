@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seyoung's PortPolio</title>
+    <!--css -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+
+<!-- 로딩 페이지-->
+<div class="load" id="load">
+    <span class="load-text">0%</span>
+    <div class="all">
+        <div class="container">
+            <div class="circle"></div>
+        </div>
+        <div class="container">
+            <div class="circle"></div>
+        </div>
+        <div class="container">
+            <div class="circle"></div>
+        </div>
+        <div class="container">
+            <div class="circle"></div>
+        </div>
+        <div class="container">
+            <div class="circle"></div>
+        </div>
+        <div class="container">
+            <div class="circle"></div>
+        </div>
+        <div class="container">
+            <div class="circle"></div>
+        </div>
+        <div class="container">
+            <div class="circle"></div>
+        </div>
+        <div class="loader">
+            <div class="load-circle"></div>
+        </div>
+    </div>
+</div>
+<!--svg filter-->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="screen_out">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  
+                           0 1 0 0 0  
+                           0 0 1 0 0  
+                           0 0 0 25 -8" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+    </defs>
+</svg>
+
+
+
+<!-- 마우스 커서 -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<!-- 메뉴 오버레이 -->
+<div class="menu-wrap">
+    <div class="menu-toggle">
+        <a href="#" class="menu-link">
+            <span class="menu-icon">
+                <span class="menu-line menu-line-1"></span>
+                <span class="menu-line menu-line-2"></span>
+            </span>
+            <span class="menu-circle">
+            </span>
+        </a>
+    </div>
+    <div class="menu-overlay">
+        <div class="overlay-content">
+            <p><a href="#section2" class="overlay-menu">
+                About
+            </a></p>
+            <p><a href="#section4" class="overlay-menu">
+                Works
+            </a></p>
+            <p><a href="#section5" class="overlay-menu">
+                Script
+            </a></p>
+            <p><a href="#section6" class="overlay-menu">
+                Animation
+            </a></p>
+            <p><a href="#footer" class="overlay-menu">
+                Contact
+            </a></p>
+            <p class="sns">
+                <span><a href="https://bongbongdang.tistory.com/" target="_blank">BLOG</a></span>
+                <span><a href="https://diddpwl80.gitbook.io/study/" target="_blank">GITBOOK</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- 본문 -->
+<div id="Allwrap">
+    <header id="header">
+        <h1><a href="index.html">Se<em>young</em></a></h1>
+        <div class="part">
+            <span class="btn"><span class="scroll">0</span></span>
+        </div>
+    </header>
+    <!-- //header -->
+
+    <div id="contents">
+        <section id="section1">
+            <div class="sec1">
+                <div class="main-text">
+                    <div class="split m1">Welcome to the</div>
+                    <div class="split">portfolio</div>
+                    <div class="split m3">of</div>
+                    <div class="split m4">seyoung</div>
+                    <div class="blak">
+                        <img src="assets/img/1bracketL.svg" alt="왼쪽괄호">
+                        <p>
+                            nice to meet you. I'm Yang Se-young,<br> 
+                            a new front-end developer.
+                        </p>
+                        <img src="assets/img/1bracketR.svg" alt="오른쪽괄호">
+                    </div>
+                </div>
+                <div class="main-sub">
+                    <svg width="1043" height="634" viewBox="0 0 1043 634" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="last" d="M10.4 560H0L69.6 0H96L264 517.6L431.2 0H457.6L527.2 560H485.5L420.5 61L260.8 560H235L71.5 61L10.4 560Z" fill="#7EC1A3"/>
+                        <path class="last" d="M630.744 364.8C630.744 430.933 649.21 479.467 672.144 510.4C695.61 541.333 726.277 556.8 764.144 556.8C817.477 556.8 864.944 548.8 906.544 532.8L908.944 538.4C866.277 554.933 818.01 563.2 764.144 563.2C710.81 563.2 667.344 547.2 633.744 515.2C600.144 483.2 583.344 433.867 583.344 367.2C583.344 300.533 600.944 248.8 636.144 212C671.344 175.2 716.144 156.8 770.544 156.8C814.277 156.8 851.077 169.867 880.944 196C910.81 222.133 925.744 260.8 925.744 312C925.744 314.667 925.744 317.333 925.744 320H633.144C631.544 334.4 630.744 349.333 630.744 364.8ZM884 313.6C883.467 262.4 863.5 224.5 841.744 200C822.544 175.467 797.744 163.2 767.344 163.2C736.944 163.2 709.744 176.533 685.744 203.2C662.277 229.867 640.344 266.667 633.944 313.6H884Z" fill="#7EC1A3"/>
+                        </svg>
+                    <p class="front">ftont-end development</p>
+                    <div class="leaf">
+                        <div class="l1">
+                            <img src="assets/img/leaf1.svg" alt="잎사귀1" aria-hidden="true">
+                        </div>
+                        <div class="l2">
+                            <img src="assets/img/leaf2.svg" alt="잎사귀2" aria-hidden="true">
+                        </div>
+                        <div class="l3">
+                            <img src="assets/img/leaf3.svg"  alt="잎사귀3" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="bubbles">
+                <div class="bubble"></div><!-- 1 -->
+                <div class="bubble white_b"></div><!-- 2 -->
+                <div class="bubble"></div><!-- 3 -->
+                <div class="bubble green_b"></div><!-- 4 -->
+                <div class="bubble"></div><!-- 5 -->
+                <div class="bubble"></div><!-- 6 -->
+                <div class="bubble"></div><!-- 7 -->
+                <div class="bubble green_b"></div><!-- 8 -->
+                <div class="bubble"></div><!-- 9 -->
+                <div class="bubble white_b"></div><!-- 10 -->
+                <div class="bubble"></div><!-- 11 -->
+                <div class="bubble"></div><!-- 12 -->
+                <div class="bubble green_b"></div><!-- 13 -->
+                <div class="bubble"></div><!-- 14 -->
+                <div class="bubble white_b"></div><!-- 15 -->
+                <div class="bubble"></div><!-- 16 -->
+                <div class="bubble green_b"></div><!-- 17 -->
+                <div class="bubble"></div><!-- 18 -->
+                <div class="bubble white_b"></div><!-- 19 -->
+                <div class="bubble"></div><!-- 20 -->
+                <div class="bubble white_b"></div><!-- 21 -->
+                <div class="bubble start"></div><!-- 22 -->
+                <div class="bubble start"></div><!-- 23 -->
+                <div class="bubble green_b start"></div><!-- 24 -->
+                <div class="bubble start"></div><!-- 25 -->
+                <div class="bubble white_b start"></div><!-- 26 -->
+                <div class="bubble start"></div><!-- 27 -->
+                <div class="bubble green_b start"></div><!-- 28 -->
+                <div class="bubble start"></div><!-- 29 -->
+                <div class="bubble white_b start"></div><!-- 30 -->
+                <div class="bubble start"></div><!-- 31 -->
+                <div class="bubble white_b start"></div><!-- 32 -->
+                <div class="bubble start"></div><!-- 33 -->
+                <div class="bubble white_b start"></div><!-- 34 -->
+                <div class="bubble start"></div><!-- 35 -->
+                <div class="bubble green_b start"></div><!-- 36 -->
+                <div class="bubble start"></div><!-- 37 -->
+                <div class="bubble start"></div><!-- 38 -->
+                <div class="bubble start"></div><!-- 39 -->
+            </div>
+
+        </section>
+        <!-- //section1 -->
+        
+        <section id="section2">
+            <div class="sec2">
+                <div class="top-bar">
+                    <p>
+                        <span>play my talent</span>
+                    </p>
+                </div>
+
+            <!-- 뮤직 플레이어 -->
+                <div class="main">
+                    <!-- show_song_number -->
+                    <div class="show_song_no">
+                        <p id="present">1</p>
+                        <p>/</p>
+                        <p id="total">2</p>
+                    </div>
+
+                    <!-- song img -->
+                    <div class="picture">
+                        <div class="main_picture">
+                            <img src="assets/img/me2.png">
+                        </div>
+                        <div class="flowers">
+                            <div class="flower f1">
+                                <img src="assets/img/a_flower1.svg" alt="장식꽃">
+                                <div class="f_bubbles">
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="flower f2">
+                                <img src="assets/img/a_flower2.svg" alt="장식꽃">
+                                <div class="f_bubbles">
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                    <div class="f_bub"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- song title & artist name -->
+                    <div class="song_detail">
+                        <p id="title">title.mp3</p>
+                        <p id="artist">Artist name</p>
+                    </div>
+
+                    <!-- song duration part -->
+                    <div class="duration">
+                        <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+                    </div>
+
+                    <!-- play bar -->
+                    <div class="middle">
+                        <button onclick="previous_song()" id="pre"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+                        <button onclick="justplay()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+                        <button onclick="next_song()" id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+                    </div>
+                </div> 
+            </div>
+        </section>
+        <!-- //section2 -->
+
+        <section id="section3">
+            <div class="sec3">
+                <div class="bottom_bar">
+                </div>
+                <div class="sticky-picture">
+                    <img src="assets/img/aboutme.jpg" alt="사진">
+                </div>
+                <div class="sec3_content">
+                    <div class="about_subtit">
+                        <p>Let’s</p>
+                        <p>create</p>
+                        <p>something</p>
+                        <p>together</p>
+                        <div class="line">
+                            <img src="assets/img/bracketL.svg">
+                            <p>
+                                I always strive to develop unique<br>
+                                design solutions and improving the<br>
+                                quality of life.
+                            </p>
+                            <img src="assets/img/bracketR.svg">
+                        </div>
+                    </div>
+                    <div class="about_intro">
+                        <div class="intro_tit">
+                            <p>Hi! I’m</p>
+                            <p>Seyoung</p>
+                            <p>Front-end Developer</p>
+                        </div>
+                        <div class="intro_cont">
+                            <p>안녕하세요. 다양하고 멋진 효과들을 구현해내고 싶은 프론트엔드 개발자 양세영입니다.</p>
+
+                            <p>부산의 국비지원학원에서 웹퍼블리셔 6개월 과정을 수료했고
+                            처음으로 해본 코딩이었지만 제가 이렇게까지 즐기면서 집중해본 적은 처음이라 이 분야에 <span class="over">더 욕심이 났습니다.</span></p>
+                            <p>그래서 서울에 올라와 <span class="over">Javascript, React, Vue, Php</span> 등 다양한 언어들을 배우며 포트폴리오를 준비했습니다.</p>
+                            <p>정성 들여 만든 작업물들을 봐주셔서 정말 감사하고 마음에 드신다면 연락주세요.</p>
+                            <p>일은 <span class="over">센스</span>있게, 코딩은 <span class="over">깔끔</span>하게, 배움은 <span class="over">열정</span>적으로 하겠습니다.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <!-- //sec3 -->
+
+            <div class="sec3-1">
+                <!-- my skill -->
+                <div class="round_back skill_bg">
+                    <div class="tit">
+                        <p class="rotatestar">
+                            <img id="star" src="assets/img/btn.svg" alt="scroll">
+                        </p>
+                        <p class="keytitle">My skill</p>
+                    </div>
+                    <div class="skill_cont">
+                        <ul>
+                            <li>
+                                <div class="skill_img">
+                                    <img src="assets/img/html.png">
+                                    <p>HTML / CSS</p>
+                                </div> 
+                                <div class="skill_text">
+                                    <p class="skill_text_title">html ability</p>
+                                    <p>웹표준을 지키려 노력합니다.</p>
+                                    <p>SCSS 문법을 사용할 수 있습니다.</p>
+                                    <p>Keyframe을 활용한 애니메이션  활용할 수 있습니다.</p>
+                                    <p>크로스 브라우징에 대응할 수 있습니다.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill_img">
+                                    <img src="assets/img/js.png">
+                                    <p>JAVASCRIPT</p>
+                                </div> 
+                                <div class="skill_text">
+                                    <p class="skill_text_title">html ability</p>
+                                    <p>웹표준을 지키려 노력합니다.</p>
+                                    <p>SCSS 문법을 사용할 수 있습니다.</p>
+                                    <p>Keyframe을 활용한 애니메이션  활용할 수 있습니다.</p>
+                                    <p>크로스 브라우징에 대응할 수 있습니다.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill_img">
+                                    <img src="assets/img/jQuery.png">
+                                    <p>JQUERY</p>
+                                </div> 
+                                <div class="skill_text">
+                                    <p class="skill_text_title">html ability</p>
+                                    <p>웹표준을 지키려 노력합니다.</p>
+                                    <p>SCSS 문법을 사용할 수 있습니다.</p>
+                                    <p>Keyframe을 활용한 애니메이션  활용할 수 있습니다.</p>
+                                    <p>크로스 브라우징에 대응할 수 있습니다.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill_img">
+                                    <img src="assets/img/React.png">
+                                    <p>REACT</p>
+                                </div> 
+                                <div class="skill_text">
+                                    <p class="skill_text_title">html ability</p>
+                                    <p>웹표준을 지키려 노력합니다.</p>
+                                    <p>SCSS 문법을 사용할 수 있습니다.</p>
+                                    <p>Keyframe을 활용한 애니메이션  활용할 수 있습니다.</p>
+                                    <p>크로스 브라우징에 대응할 수 있습니다.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill_img">
+                                    <img src="assets/img/Vue.png">
+                                    <p>VUE</p>
+                                </div> 
+                                <div class="skill_text">
+                                    <p class="skill_text_title">html ability</p>
+                                    <p>웹표준을 지키려 노력합니다.</p>
+                                    <p>SCSS 문법을 사용할 수 있습니다.</p>
+                                    <p>Keyframe을 활용한 애니메이션  활용할 수 있습니다.</p>
+                                    <p>크로스 브라우징에 대응할 수 있습니다.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill_img">
+                                    <img src="assets/img/PHP.png">
+                                    <p>PHP</p>
+                                </div> 
+                                <div class="skill_text">
+                                    <p class="skill_text_title">html ability</p>
+                                    <p>웹표준을 지키려 노력합니다.</p>
+                                    <p>SCSS 문법을 사용할 수 있습니다.</p>
+                                    <p>Keyframe을 활용한 애니메이션  활용할 수 있습니다.</p>
+                                    <p>크로스 브라우징에 대응할 수 있습니다.</p>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- my keyworld -->
+                <div class="round_back keyworld_bg">
+                    <div class="tit">
+                        <p class="rotatestar">
+                            <img id="star" src="assets/img/btn.svg" alt="scroll">
+                        </p>
+                        <p class="keytitle">My Keyword</p>
+                        <p class="keysubtit">
+                            Things I like and things that relate to me<br>
+                            I love animals and I love bread.<br>
+                            And I'm kind and passionate
+                        </p>
+                    </div>
+                    <div class="keywordarrow">
+                        <img src="assets/img/c_arrow.svg">
+                    </div>
+                    <div class="k_containers">
+                        <div class="k_cont">
+                            <button class="hover-button">
+                                나를 움직이는 원동력은?
+                            </button>
+                        </div>
+                        <div class="k_cont">
+                            <button class="hover-button">
+                                밝고 배려심이 많은...
+                            </button>
+                        </div>
+                        <div class="k_cont">
+                            <button class="hover-button">
+                                매일 아침 하는 일은?
+                            </button>
+                        </div>
+                        <div class="k_cont">
+                            <button class="hover-button">
+                                항상 배우고 싶어요!
+                            </button>
+                        </div>
+                        <div class="k_cont">
+                            <button class="hover-button">
+                                운동은 주 몇회!?
+                            </button>
+                        </div>
+                        <div class="k_cont">
+                            <button class="hover-button">
+                                내 꿈은
+                            </button>
+                        </div>
+                    </div>
+                    <div class="keyword_pt">
+                        <div class="swiper-container mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="assets/img/kpt1.jpg" alt="키워드사진1">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/kpt2.jpg" alt="키워드사진2">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/kpt3.jpg" alt="키워드사진3">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/kpt4.jpg" alt="키워드사진4">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/kpt5.jpg" alt="키워드사진5">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/kpt6.jpg" alt="키워드사진6">
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section><!-- //section3 -->
+
+        <section id="section4">
+        <div class="sec4">
+            <div class="top-bar sec4_tb">
+                <p>Let's take a look at my project!</p>
+            </div>
+            <div class="s4_Tit">
+                <p>Let me</p>
+                <p>show you</p>
+                <p class="s4_tit_p3">
+                    <span>my works!</span>
+                    <svg class="check" width="835" height="408" viewBox="0 0 835 408" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="checkpath" d="M81.0003 20.5C273.667 31.6667 684.1 80.1 784.5 184.5C910 315 754 362 650.5 388C547 414 212.5 431.5 43.0003 254C-126.5 76.5 306.5 3.5 367 3.5C427.5 3.5 603.5 10 701.5 78.5" stroke="#7AA0B2" stroke-width="7"/>
+                    </svg>
+                </p>
+            </div>
+            <div class="works">
+                <div class="work w1">
+                    <div class="inside">
+                        <div class="monitor">
+                            <a href="#"><img src="assets/img/project1.jpg" alt="모니터"></a>
+                        </div>
+                        <div class="work_text">
+                            <p class="number">1/7</p>
+                            <p class="tit">REACT WEBSITE</p>
+                            <p class="cont">
+                                React를 사용해서 두번째 포트폴리오를 제작하였습니다. Youtube API를 이용해 도영상을 검색할 수 있는 페이지를 제작했고, FIREBASE로 호스팅했습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="work w2">
+                    <div class="inside">
+                        <div class="monitor">
+                            <a href="#"><img src="assets/img/project2.jpg" alt="모니터"></a>
+                        </div>
+                        <div class="work_text">
+                            <p class="number">2/7</p>
+                            <p class="tit">VUE WEBSITE</p>
+                            <p class="cont">
+                                Vue를 이용해 웹 사이트를 제작하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="work w3">
+                    <div class="inside">
+                        <div class="monitor">
+                            <a href="#"><img src="assets/img/project3.jpg" alt="모니터"></a>
+                        </div>
+                        <div class="work_text">
+                            <p class="number">3/7</p>
+                            <p class="tit">PHP WEBSITE</p>
+                            <p class="cont">
+                                Php를 사용해 웹 페이지를 제작하였습니다. 댓글 기능, 게시판 등의 기능을 넣었습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="work w4">
+                    <div class="inside">
+                        <div class="monitor">
+                            <a href="#"><img src="assets/img/project4.jpg" alt="모니터"></a>
+                        </div>
+                        <div class="work_text">
+                            <p class="number">4/7</p>
+                            <p class="tit">MEGABOX</p>
+                            <p class="cont">
+                                메가박스 사이트를 클론 코딩하였습니다. 반응형까지 작동하도록 만들었고 웹표준에 맞추어 제작하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="work w5">
+                    <div class="inside">
+                        <div class="monitor">
+                            <a href="#"><img src="assets/img/project5.jpg" alt="모니터"></a>
+                        </div>
+                        <div class="work_text">
+                            <p class="number">5/7</p>
+                            <p class="tit">WINIX RESPONSIVE</p>
+                            <p class="cont">
+                                위닉스 홈페이지를 리뉴얼하여 제작했습니다. 제품에 집중할 수 있도록 디자인했으며 처음으로 반응형 웹페이지를 구현해보았습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="work w6">
+                    <div class="inside">
+                        <div class="monitor">
+                            <a href="#"><img src="assets/img/project6.jpg" alt="모니터"></a>
+                        </div>
+                        <div class="work_text">
+                            <p class="number">6/7</p>
+                            <p class="tit">KOIPA</p>
+                            <p class="cont">
+                                한국지식재산보호원 홈페이지 리뉴얼 | HTML5 & CSS3 웹표준에 맞추어  공기업의
+                                신뢰성 있는 디자인과 정보 전달 위주로 리뉴얼 하였습니다. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="work w7">
+                    <div class="inside">
+                        <div class="monitor">
+                            <a href="#"><img src="assets/img/project7.jpg" alt="모니터"></a>
+                        </div>
+                        <div class="work_text">
+                            <p class="number">7/7</p>
+                            <p class="tit">KRISPY KREME</p>
+                            <p class="cont">
+                                크리스피크림 리뉴얼 홈페이지 코딩 | 처음 만든 웹사이트로 브랜드가 추구하는
+                                분위기와 주연령대를 분석하여 리뉴얼 하였습니다. 상세페이지 메뉴도 함께 제작하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <!-- //section4 -->
+
+        <section id="section5">
+            <div class="sec5">
+                <div class="s5_tit">
+                    <p class="btn s5_btn"></p>
+                    <p class="s5_text">
+                        THIS IS A VARIETY OF<br>
+                        SCRIPT <span class="ck5">PROJECTS</span>
+                    </p>
+                </div>
+                <div class="s5 s5_1">
+                    <div class="sec5-text">
+                        <p class="number">1/5</p>
+                        <p class="tit">Play the piano</p>
+                        <p class="cont">
+                            순수 100% Vanilla JavaScript로 키보드를 누르면 건반 소리가 나는 프로그램을 만들었습니다. 
+                        </p>
+                        <p class="s5_cv"><a href="https://codepen.io/seyoungjoy/pen/yLbgPMW" target="_blank">CODE VIEW</a></p>
+                    </div>
+                    <div class="s5_screen">
+                        <div class="s5_screen_column">
+                            <img class="macbar" src="assets/img/macbar.jpg">
+                            <iframe class="js1" title="js1" width="100%" height="100%" src="http://fejoy95.dothome.co.kr/port/jsproject/index1.html">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="s5 s5_2">
+                    <div class="sec5-text">
+                        <p class="number">2/5</p>
+                        <p class="tit">Clock</p>
+                        <p class="cont">
+                            순수 100% Vanilla JavaScript로 만든 크롬 앱 서비스입니다. 현재 시간을 가져오는 시계를 구현했으며, 할 일 목록을 생성하고 완료된 것은 삭제할 수 있습니다. 또한, 지역기반으로 API를 가져와 날씨를 보여주며, 랜덤 배경 사진 기능을 구현했습니다.
+                        </p>
+                        <p class="s5_cv"><a href="https://codepen.io/seyoungjoy/pen/yLbgPMW" target="_blank">CODE VIEW</a></p>
+                    </div>
+                    <div class="s5_screen screen2">
+                        <div class="s5_screen_column">
+                            <img class="macbar" src="assets/img/macbar.jpg">
+                            <iframe class="js2" title="js2" width="100%" height="100%" margin="auto"src="http://fejoy95.dothome.co.kr/port/jsproject/index2.html">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="s5 s5_3">
+                    <div class="sec5-text">
+                        <p class="number">3/5</p>
+                        <p class="tit">TO DO LIST</p>
+                        <p class="cont">
+                            javascript로 만든 To do list 입니다. + 버튼을 클릭하면 아래 숨겨져 있던 form이 나오고 제목과 내용을 입력하면 목록을 추가할 수 있습니다. 리스트 목록과 오른쪽 상단의 숫자를 동일하게 설정하여 목록의 개수를 알 수 있도록 설정했습니다. 
+                        </p>
+                        <p class="s5_cv"><a href="https://codepen.io/seyoungjoy/pen/yLbgPMW" target="_blank">CODE VIEW</a></p>
+                    </div>
+                    <div class="s5_screen screen3">
+                        <div class="s5_screen_column">
+                            <img class="macbar" src="assets/img/macbar.jpg">
+                            <iframe class="js3" title="js3" width="100%" height="100%" src="http://fejoy95.dothome.co.kr/port/jsproject/index3.html">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="s5 s5_4">
+                    <div class="sec5-text">
+                        <p class="number">4/5</p>
+                        <p class="tit">Calculator</p>
+                        <p class="cont">
+                            순수 100% Vanilla JavaScript로 만든 크롬 앱 서비스입니다. 현재 시간을 가져오는 시계를 구현했으며, 할 일 목록을 생성하고 완료된 것은 삭제할 수 있습니다. 또한, 지역기반으로 API를 가져와 날씨를 보여주며, 랜덤 배경 사진 기능을 구현했습니다.
+                        </p>
+                        <p class="s5_cv"><a href="https://codepen.io/seyoungjoy/pen/yLbgPMW" target="_blank">CODE VIEW</a></p>
+                    </div>
+                    <div class="s5_screen screen4">
+                        <div class="s5_screen_column">
+                            <img class="macbar" src="assets/img/macbar.jpg">
+                            <iframe class="js1" title="js1" width="100%" height="100%" src="http://fejoy95.dothome.co.kr/port/jsproject/index4.html">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="s5 s5_5">
+                    <div class="sec5-text">
+                        <p class="number">5/5</p>
+                        <p class="tit">TO DO LIST</p>
+                        <p class="cont">
+                            순수 100% Vanilla JavaScript로 만든 크롬 앱 서비스입니다. 현재 시간을 가져오는 시계를 구현했으며, 할 일 목록을 생성하고 완료된 것은 삭제할 수 있습니다. 또한, 지역기반으로 API를 가져와 날씨를 보여주며, 랜덤 배경 사진 기능을 구현했습니다.
+                        </p>
+                        <p class="s5_cv"><a href="https://codepen.io/seyoungjoy/pen/yLbgPMW" target="_blank">CODE VIEW</a></p>
+                    </div>
+                    <div class="s5_screen screen5">
+                        <div class="s5_screen_column">
+                            <img class="macbar" src="assets/img/macbar.jpg">
+                            <iframe class="js1" title="js1" width="100%" height="100%" src="http://fejoy95.dothome.co.kr/port/jsproject/js1/index1.html">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //section5 -->
+
+        <section id="section6">
+            <div class="sec6">
+                <div class="s6_tit">
+                    <p class="btn s6_btn"></p>
+                    <p class="s6_text">
+                        IT'S MADE OF PURE CSS.<br>
+                        CSS <span class="ck6">ANIMATION</span>
+                    </p>
+                </div>
+                <div class="s6">
+                    <div class="s6_subtit">css animation works :</div>
+                    <div class="s6_cont">
+                        <ul>
+                            <li>
+                                <p><a>SPINNING LOADING</a></p>
+                                <p>keyframe과 rotate를 이용한 애니메이션 입니다.</p>
+                            </li>
+                            <li>
+                                <p><a>TEXT-MOVE</a></p>
+                                <p>keyframe과 rotate를 이용한 애니메이션 입니다.</p>
+                            </li>
+                            <li>
+                                <p><a>ROTATE CIRCLE</a></p>
+                                <p>keyframe과 rotate를 이용한 애니메이션 입니다.</p>
+                            </li>
+                            <li>
+                                <p><a>SVG TWEENMAX</a></p>
+                                <p>keyframe과 rotate를 이용한 애니메이션 입니다.</p>
+                            </li>
+                            <li>
+                                <p><a>Follow MouseCursor</a></p>
+                                <p>keyframe과 rotate를 이용한 애니메이션 입니다.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <!-- //section6 -->
+
+        <footer id="footer">
+            <div class="ft">
+                <div class="ft_c1">
+                    <p class="curvetext">
+                        <img src="assets/img/warped.svg">
+                    </p>
+                    <div class="ft_centerbg">
+                        <div class="ft_pt">
+                            <img src="assets/img/me2.png" alt="증명사진">
+                        </div>
+                    </div>
+                    <div class="ft_greetings">
+                        <p>
+                            제가 입력한 코드를 통해 컴퓨터와 대화하며<br>
+                            원하는 것들을 만들 수 있다는 것이 참 매력적인 것 같습니다.<br>
+                            결과물이 잘 나오면 <span>(마음속으로 춤을 출 정도로)</span> 너무 기분이 좋습니다.
+                        </p>
+                        <p>
+                            저의 이러한 성취감을 발판 삼아<br>
+                            항상 공부하며 발전하는 프론트 엔드 개발자가 되겠습니다.
+                        </p>
+                        <p>
+                            또한 열린 마음으로 사람들과 소통하며 즐겁게 일하겠습니다.
+                        </p>
+                    </div>
+                    <div class="ft_arrow"></div>
+                
+                
+                    <div class="contact">
+                        <h2>If you like mails</h2>
+                        <div class="email"><a>diddpwl80@gmail.com</a></div>
+                        <div class="ct">
+                            IF YOU WANT TO TALK<br>
+                            SHOOT ME A MESSAGE FOR DETAILS.
+                        </div>
+                        <form method="POST" action="https://formspree.io/dev.diddpwl@gmail.com"
+                         class="send-message">
+                            <div class="message">
+                                <div class="m1">
+                                    <input type="email" id="form_email" placeholder="E-mail address" name="username">
+                                    <label for="form_email">email</label>
+                                </div>
+                                <div class="m2">
+                                    <input type="text" id="form_text" placeholder="Title" name="usertitle">
+                                    <label for="form_text">Title</label>
+                                </div>
+                                <div class="m3">
+                                    <input type="text" id="form_message" placeholder="Message" name="usermessage">
+                                    <label for="form_cont">Message</label>
+                                </div>
+                                <button class="form_btn">send</button>
+                            </div>
+                        </form>>
+                    </div>
+
+                    <div class="ft_nav clearfix">
+                        <nav class="fmenu screen_out">
+                            <ul>
+                                <li><a>ABOUT</a></li>
+                                <li><a>WORKS</a></li>
+                                <li><a>ANIMATION</a></li>
+                                <li><a>SCRIPT</a></li>
+                                <li><a>CONTACT</a></li>
+                            </ul>
+                        </nav>
+                        <div class="copy">
+                            ©COPYRIGHT 2021 SEYOUNG
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="waveani">
+                <div class="wave wave1"></div>
+                <div class="wave wave2"></div>
+                <div class="wave wave3"></div>
+                <div class="wave wave4"></div>
+            </div>
+        </footer>
+        <!-- //footer -->
+    </div>
+    <!-- //contents -->
+
+
+<!-- 자바스크립트 라이브러리 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://webstoryboy.github.io/portfolio2/portfolio06/js/imagesloaded.pkgd.min.js"></script>
+
+<!-- 자바스크립트 파일 -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/mouse.js"></script>
+<script src="assets/js/music.js"></script>
+
+</div>
+</body>
+</html>

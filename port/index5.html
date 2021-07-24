@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height:100vh;
+        }
+        .main{
+            text-align: center;
+            width:90%;
+            opacity:0;
+            display: none;
+            transition:opacity 1s ease-in;
+        }
+        .all {
+            width:100vw;
+            height:100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: scale(0.5);
+            filter: url('#goo'); /* <----------- add class */
+            }
+            .container, .loader {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: calc(50% - 200px); 
+            left: calc(50% - 200px);  
+            transform-origin: center;
+            }
+            .circle, .load-circle {
+            width: 80px;
+            height: 80px;  
+            position: absolute;
+            background-color: #7EC1A3;
+            left: calc(50% - 40px);
+            border-radius: 50px;  
+            }
+            .container:nth-child(2) {
+            transform: rotate(45deg);
+            }
+            .container:nth-child(3) {
+            transform: rotate(90deg);
+            }
+            .container:nth-child(4) {
+            transform: rotate(135deg);
+            }
+            .container:nth-child(5) {
+            transform: rotate(180deg);
+            }
+            .container:nth-child(6) {
+            transform: rotate(225deg);
+            }
+            .container:nth-child(7) {
+            transform: rotate(270deg);
+            }
+            .container:nth-child(8) {
+            transform: rotate(315deg);
+            }
+            .loader {  
+            transform-origin: center;
+            animation: anim 5s infinite ease-in-out;
+            }
+            .load-circle {
+            width: 60px;
+            height: 60px;
+            top: 20px;
+            }
+            @keyframes anim {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+            }
+
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div class="container">
+          <div class="circle"></div>
+        </div>
+        <div class="container">
+          <div class="circle"></div>
+        </div>
+        <div class="container">
+          <div class="circle"></div>
+        </div>
+        <div class="container">
+          <div class="circle"></div>
+        </div>
+        <div class="container">
+          <div class="circle"></div>
+        </div>
+        <div class="container">
+          <div class="circle"></div>
+        </div>
+        <div class="container">
+          <div class="circle"></div>
+        </div>
+        <div class="container">
+          <div class="circle"></div>
+        </div>
+        <div class="loader">
+          <div class="load-circle"></div>
+        </div>
+       </div>
+      
+      
+      <!-- -->
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" 
+                       values="1 0 0 0 0  
+                               0 1 0 0 0  
+                               0 0 1 0 0  
+                               0 0 0 25 -8" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+      </filter>
+        </defs>
+      </svg>
+      
+      
+
+    <section class="main">
+        <h1>ㅈ딘아ㅓ린아런이ㅏㄹ</h1>
+        <p>sadlkfjasldkfjasdlkfjasdlkfjasdlk</p>
+    </section>
+<script>
+    const loader = document.querySelector('.all');
+    const main = document.querySelector('.main');
+
+    function init(){
+        setTimeout(()=> {
+            loader.style.opacity = 0;
+            loader.style.display = 'none';
+
+            main.style.display = 'block';
+            setTimeout(()=> (main.style.opacity = 1),50);
+            
+        }, 4000);
+    }
+    init();
+</script>
+</body>
+</html>

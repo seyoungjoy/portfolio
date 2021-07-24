@@ -1,0 +1,60 @@
+@charset "utf-8";
+/*서브헤더영영*/
+#subHeader{width:100%; border-bottom:1px solid #d2d2d2; margin-bottom:70px;}
+
+#subHeader .visual{width:100%; height:390px; background:url(../img/sub1/sub_img.jpg) no-repeat center 0; text-indent:-9999px; background-size:cover; margin-bottom:118px;}
+
+#subHeader .sHI{width:980px; margin:0 auto; position:relative;}
+.sHI h3{font-size:24px; line-height:24px; color:#444; text-align:center; margin-bottom:133px;}
+
+.sGnb1{position:absolute; top:50px; left:50%; margin-left:-100px;}
+.sGnb1 p{float:left; margin-right:8px; font-size:14px; color:#777;}
+.sGnb1 p a{color:#777;}
+.sGnb1 p:nth-child(5){margin-right:0; font-size:15px;}
+.sGnb1 p:nth-child(5) a{color:#444;}
+
+.sGnb1 p:nth-child(1):hover,
+.sGnb1 p:nth-child(3):hover,
+.sGnb1 p:nth-child(5):hover{text-decoration:underline;}
+
+.sGnb2{}
+.sGnb2 li{width:196px; height:19px; float:left; font-size:19px; line-height:19px; text-align:center;}
+.sGnb2 .first{position:relative;}
+.sGnb2 .first a{color:#c40e3e}
+.sGnb2 .first span{width:196px; height:19px; border-bottom:2px solid #c40e3e; position:absolute; bottom:-1px; left:0;}
+.sGnb2 li a{color:#444;}
+.sGnb2 li:hover a{color:#c40e3e}
+
+/*컨테이너 영역*/
+#container{width:980px; margin:0 auto;}
+#container .title{width:160px; height:25px; background:#c40e3e; border-radius: 12.5px; position:absolute; top:-12.5px; left:50%; margin-left:-80px;}
+#container .title h4{font-size:13px; color:#fff; line-height:25px; text-align:center; font-weight:400;}
+#container .border{border-top:1px solid #c2c2c2; position:relative;}
+#container .product ul:after{content:""; display:block; clear:both;}
+#container .product li{float:left; margin-right:51px;}
+#container .product .last{margin-right:0;}
+#container .product li .photo{margin-bottom:30px;}
+#container .product li .photo img{transition:transform 0.5s;}
+#container .product li:hover .photo img{transform:scale(1.2);}
+#container .product li .text{text-align:center; color:#444;}
+
+
+
+.monthD{margin-bottom:100px;}
+.monthD .banner{width:980px; height:357px; background:url(../img/sub1/banner.jpg) no-repeat center 0; text-indent:-9999px; margin-bottom:70px;}
+
+
+.searchBox{width:932px; height:75px; border:1px solid #c2c2c2; border-radius: 3px; padding:30px 24px 45px; margin-bottom:80px; position:relative;}
+.searchBox h5{font-size:13px; margin-bottom:31px;}
+.searchBox .line{display:block; width 930px; height:1px; background:#c2c2c2; text-indent:-9999px; margin-bottom:29px;}
+.searchBox .check{}
+.searchBox .check p{float:left; margin-right:45px; color:#444;}
+.searchBox .check input{margin-right:10px; }
+
+.searchBox .sc{position:absolute; top:20px; right:24px;}
+.searchBox .sc input{width:204px; height:34px; border:1px solid #c2c2c2; border-radius: 3px; background:url(../img/sub1/icon_search.png) no-repeat 178px center;}
+
+.seasonD{padding:80px 0 110px;}
+.basicD{padding:80px 0 110px;}
+.basicD .product .p1{margin-bottom:70px;}
+.premiumD{padding:80px 0 150px;}

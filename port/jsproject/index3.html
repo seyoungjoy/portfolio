@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Advance Todo List</title>
+	<meta name="viewport" content="width=device-width , initial-scale=1">
+	<link rel="stylesheet" href="assets/css/style3.css">
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+	<div class="main">
+		<h1 id="default_text">No task is available&nbsp;<i class='bx bx-task-x'></i></h1>
+		<h1>My Day</h1>
+		<h1 id="total_task"><i class='bx bx-task'></i>&nbsp;6</h1>
+	
+		<div class="display_task">
+			<div class="task" id="todo_1">
+				<h2>Task 1</h2>
+				<p>Javascript 공부하기</p>
+				<span class="delete_todo">x</span>
+			</div>
+	
+			<div class="task" id="todo_2">
+				<h2>Task 2</h2>
+				<p>운동하기</p>
+				<span class="delete_todo">x</span>
+			</div>
+	
+			<div class="task" id="todo_3">
+				<h2>Task 3</h2>
+				<p>카페가서 작업하기</p>
+				<span class="delete_todo">x</span>
+			</div>
+	
+			<div class="task" id="todo_4">
+				<h2>Task 4</h2>
+				<p>React 공부하기</p>
+				<span class="delete_todo">x</span>
+			</div>
+	
+	
+			<div class="task" id="todo_5">
+				<h2>Task 5</h2>
+				<p>웹표준 공부하기</p>
+				<span class="delete_todo">x</span>
+			</div>
+	
+			<div class="task" id="todo_6">
+				<h2>Task 6</h2>
+				<p>강아지 산책시키기</p>
+				<span class="delete_todo">x</span>
+			</div>
+	
+		</div>
+	
+		<button id="floating_btn"><i class='bx bx-plus'></i></button>
+		<div class="floating_menu">
+			<button id="hide_menu"><i class='bx bx-chevron-down'></i></button>
+	
+			<form class="form">
+				<input type="text" name="task_title" placeholder="Task Title" autocomplete="off">
+				<input type="text" name="task_description" placeholder="Task Description" autocomplete="off">
+				<div class="buttons">
+					<button id="clear_text_box"><i class='bx bx-plus'></i></button>
+					<button id="add_todo"><i class='bx bx-plus'></i></button>
+				</div>
+	
+			</form>
+		</div>
+	</div>
+	
+	<script>
+		let floating_btn = document.querySelector('#floating_btn');
+		let hide_menu = document.querySelector('#hide_menu');
+		let add_todo = document.querySelector('#add_todo');
+		let default_text = document.querySelector('#default_text');
+		let clear_text_box = document.querySelector('#clear_text_box');
+		let floating_menu = document.querySelector('.floating_menu');
+
+		// btn click
+		floating_btn.addEventListener('click', function(){
+			floating_menu.classList.toggle('floating_menu_active');
+		});
+		hide_menu.addEventListener('click', function(){
+			floating_menu.classList.toggle('floating_menu_active');
+		});
+
+		// todo
+		let display_task = document.querySelector('.display_task');
+		let total_task = document.querySelector('#total_task');
+		let list = document.querySelectorAll('.display_task .task');
+		let form =document.querySelector('.form');
+
+		var task_length = list.length;
+
+		// clear text btn click
+		clear_text_box.addEventListener('click', function(e){
+			e.preventDefault();
+			form.task_title.value= '';
+			form.task_description.value= '';
+		});
+
+		/*add todo btn click*/
+add_todo.addEventListener('click', function(e){
+   e.preventDefault();
+   const todo_title = form.task_title.value.trim();
+   const todo_description = form.task_description.value.trim();
+    if (todo_title.length && todo_description.length){
+ 		task_length = task_length + 1;
+    total_task.innerHTML = "<i class='bx bx-task'></i>&nbsp;" + task_length;
+ 		generateTodo(todo_title,todo_description);
+ 		Form.reset();
+ 	}else{
+ 		alert("Sorry, you didn't type anything.");
+ 	}
+});
+
+
+/*generate Todo*/
+const generateTodo = (todo_title,todo_description) => {
+    const html = `<div class="task" id="todo_ ${task_length}">
+				<h2>${todo_title}</h2>
+				<p>${todo_description}</p>
+				<span class="delete_todo">x</span>
+			</div>`;
+      if (task_length > 0) {
+         default_text.style.opacity = '0';
+      }
+ 	    display_task.innerHTML += html;
+      floating_menu.classList.toggle('floating_menu_active');
+};
+
+/*delete todo btn click*/
+display_task.addEventListener("click" , function(e){
+  if(e.target.classList.contains("delete_todo")){
+    e.target.parentElement.remove();
+    task_length = task_length - 1;
+    if (task_length==0) {
+       default_text.style.opacity = '1';
+    }
+    total_task.innerHTML = "<i class='bx bx-task'></i>&nbsp;" + task_length;
+  }
+});
+
+	</script>
+</body>
+</html>
