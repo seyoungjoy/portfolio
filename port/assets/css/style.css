@@ -2103,16 +2103,14 @@ input[type="range"]::-webkit-slider-thumb{
 }
 .s6_cont li .animation{
     width:100%;
-    height:700px;
+    height:500px;
     margin-bottom: 1vh;
 }
 .s6_cont li .animation iframe{
     overflow: hidden;
     border: none;
 }
-.s6_cont li .s6_title{
-    
-}
+
 .s6_cont li .s6_title p:first-child{
     font-size: 2vw;
 }
