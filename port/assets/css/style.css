@@ -2107,6 +2107,7 @@ input[type="range"]::-webkit-slider-thumb{
     margin-bottom: 1vh;
 }
 .s6_cont li .animation iframe{
+    overflow: hidden;
     border: none;
 }
 .s6_cont li .s6_title{
