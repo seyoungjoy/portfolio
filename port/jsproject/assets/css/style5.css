@@ -1,0 +1,64 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'poppins', sans-serif;
+}
+.main{
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #000;
+}
+.content{
+	width: 500px;
+	height: 500px;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+textarea{
+	width: 80%;
+	height: 35%;
+	outline: none;
+	padding: 20px;
+	font-size: 25px;
+	margin-bottom: 40px;
+	resize: none;
+	border: 1px dashed #000;
+}
+
+#title{
+	text-transform: capitalize;
+	font-size: 25px;
+}
+
+/*result part*/
+.results{
+	width: 80%;
+	margin-top: 40px;
+	padding: 10px 0;
+}
+.results div{
+	display: flex;
+	align-items: center;
+	background: #58D68D;
+	padding: 20px;
+}
+.results div:last-child{
+	margin-top: 10px;
+	background: #F39C12;
+}
+.results div p{
+	font-size: 20px;
+	text-transform: capitalize;
+}
+.results div i{
+	margin-right: 8px;
+}
+.results div p:not(:last-child){
+	margin-right: 15px;
+}

@@ -71,8 +71,6 @@ $(".split").each(function(){
 });
 
 setTimeout(function(){
-    // $(".main-text > div:nth-child(1)").css("opacity", "1");
-    // document.querySelector(".main-text > div:nth-child(1)").style.opacity = "1";
     let tl = gsap.timeline();
     tl.to("#header", {duration: 0.4, stagger: 0.05, opacity: 1, y: 0})
     tl.to(".menu-toggle", {duration: 0.4, stagger: 0.05, opacity: 1, y: 0})
@@ -86,6 +84,7 @@ setTimeout(function(){
 
 $(window).scroll(function(){
     let scroll = $(window).scrollTop(); 
+
     $(".scroll").text(parseInt(scroll));
     if(scroll >= $(".last").offset().top - $(window).height()/2)
     {
@@ -105,6 +104,7 @@ $(window).scroll(function(){
 
     //section3 나타내기
     let scrollTop = $(window).scrollTop() + $(window).height();
+
     if( scrollTop >  $(".sticky-picture").offset().top ){
         $(".sticky-picture").addClass("show");
     }
@@ -120,6 +120,14 @@ $(window).scroll(function(){
     if( scrollTop >  $(".intro_cont").offset().top ){
         $(".intro_cont").addClass("show");
     }
+    if( scrollTop >  $(".skill_tit").offset().top ){
+        $(".skill_tit").addClass("show");
+    }
+    if( scrollTop >  $(".skill_cont").offset().top ){
+        $(".skill_cont").addClass("show");
+    }
+    
+
 
     //sec4 project check svg path animation    
     if( scrollTop >  $(".checkpath").offset().top ){
@@ -128,16 +136,20 @@ $(window).scroll(function(){
 
 });
 
+// 이미지 바꾸기
+// var onScrollHandler = function() {
+//     var newImageUrl = document.getElementById("sec3picture").src;
+//     let scrollTop = $(window).scrollTop() + $(window).height();
+//     if( scrollTop >  $(".skill_tit").offset().top ){
+//         newImageUrl = "assets/img/skillme.jpg";
+//     }
+//   };
+// object.addEventListener ("scroll", onScrollHandler);
 
 $(window).scroll(function(){
     //section3 스킬 영역
     let scroll = $(window).scrollTop()
-    if(scroll >= $(".skill_bg").offset().top - $(window).height()*2.8){
-        let tl = gsap.timeline();
-        tl.to(".round_back.skill_bg ", {opacity:1, scale:1})
-        tl.to(".round_back.skill_bg .keytitle", {opacity:1, y:0, delay:0.4})
-        tl.to(".round_back.skill_bg li", {opacity:1, y:0,  delay:0.5})
-    };
+
      //section3 키워드 영역
     if(scroll >= $(".round_back.keyworld_bg").offset().top - $(window).height()*1.5){
         let tl = gsap.timeline();

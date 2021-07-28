@@ -1427,7 +1427,7 @@ input[type="range"]::-webkit-slider-thumb{
 .about_subtit{
     margin-bottom:15vw;
     position: absolute;
-    top: 11%;
+    top: 5%;
     right: 8%;
 }
 .about_subtit>p{
@@ -1514,7 +1514,73 @@ input[type="range"]::-webkit-slider-thumb{
 .intro_cont p span{
     font-size: 1.7vw;
     color:#80BBA0;
+}
 
+.about_intro .skill_tit{
+    position: relative;
+    font-size: 17vw;
+    color: #80BBA0;
+    line-height: 0.8;
+    margin-left: -20vw;
+    opacity:0; 
+    transform:translateY(200px); 
+    transition: all 1s 0.1s ease;
+    margin-bottom:20vh;
+}
+.about_intro .skill_tit.show{
+    opacity:1; 
+    transform:translateY(0px); 
+}
+.skill_tit p:first-child{
+    margin-left: 11vw;
+    white-space: nowrap;
+}
+.skill_tit p:last-child{
+    font-size: 3.27vw;
+    color: #333;
+    position: absolute;
+    right: 20%;
+    bottom:15%
+}
+
+.skill_cont{
+    text-align: center;
+    font-family: var(--sub-font);
+    opacity:0; 
+    transform:translateY(200px); 
+    transition: all 1s 0.1s ease;
+}
+.skill_cont.show{
+    opacity:1; 
+    transform:translateY(0px); 
+}
+.skill_cont li{
+    margin-bottom:15vh;
+}
+.skill_cont img{
+    width:auto;
+    height:100px;
+}
+.skill_subtit{
+    font-size: 30px;
+}
+.skill_subcont{
+    font-size: 21px;
+    margin:2vh 0;
+}
+.skill_subcont span{
+    display:block;
+}
+.skill_btn{
+    width:150px;
+    background: #333;
+    font-size: 15px;
+    margin:0 auto;
+}
+.skill_btn a{
+    display: block;
+    color:#fff;
+    padding:1rem 2rem;
 }
 
 
@@ -1535,7 +1601,7 @@ input[type="range"]::-webkit-slider-thumb{
     transform: scale(0);
 }
 .round_back.keyworld_bg{
-    margin-top: -113vh;
+    /* margin-top: -113vh; */
     opacity:0;
     transform: scale(0);
 }
@@ -1573,7 +1639,8 @@ input[type="range"]::-webkit-slider-thumb{
     transform: translateY(150px);
 }
 
-.skill_cont ul{
+
+/* .skill_cont ul{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1620,7 +1687,7 @@ input[type="range"]::-webkit-slider-thumb{
 .skill_cont li .skill_text_title{
     font-size: 1vw;
     font-family: var(--small-font);
-}
+} */
 
 .keywordarrow{
     width:100%;
