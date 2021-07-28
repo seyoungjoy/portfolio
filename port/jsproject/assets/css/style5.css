@@ -9,16 +9,17 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: #000;
-}
-.content{
-	width: 500px;
-	height: 500px;
 	background: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+}
+.content {
+    width: 500px;
+    height: 451px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 5px 5px 10px 5px rgb(0 0 0 / 18%);
 }
 textarea{
 	width: 80%;

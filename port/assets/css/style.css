@@ -2092,27 +2092,20 @@ input[type="range"]::-webkit-slider-thumb{
 .s6{
     padding:0 7vw 10vw;
 }
-.s6_subtit{
-    font-size: 2.6vw;
-}
-
 .s6_cont ul{
-    border-top: 2px solid #D6AF58;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
 }
 .s6_cont li{
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid #D6AF58;
+    width:45%;
+    
+    
+    margin-bottom:5vh;
 }
-
-.s6_cont li p:nth-child(1){
-    font-size: 4.5vw;
-    flex-basis: 65%;
-}
-.s6_cont li p:nth-child(2){
-    font-size: 1.2vw;
-    font-family: var(--sub-font);
-    flex-basis: 35%;
+.s6_cont li .animation{
+    width:100%;
+    height:700px;
 }
 
 
