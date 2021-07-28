@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 97vh;
+            background: #1d1d1d;
+        }
+
+        .roket-container {
+            width: 220px;
+            height: 380px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            animation: vibration 0.2s infinite;
+        }
+
+        @keyframes vibration {
+            0% {
+                transform: translate(0, 0) rotate(45deg)
+            }
+
+            50% {
+                transform: translate(1px, -1px) rotate(45deg)
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(45deg)
+            }
+        }
+
+        .capsule {
+            width: 111px;
+            height: 154px;
+            position: absolute;
+            left: 46px;
+            top: 5px;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .capsule .top {
+            position: absolute;
+            left: 0;
+            width: 0;
+            height: 0;
+            padding: 0;
+            border-bottom: 62px solid #f3f3f3;
+            border-left: 56px solid transparent;
+            border-right: 56px solid transparent;
+        }
+
+        .capsule .top:after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: -14px;
+            width: 0;
+            height: 0;
+            border-bottom: 84px solid #1d1d1d;
+            border-left: 0px solid transparent;
+            border-right: 156px solid transparent;
+            transform: skew(42deg);
+        }
+
+        .capsule .top .shadow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-bottom: 90px solid #e0e0e0;
+            border-left: 20px solid transparent;
+            border-right: 80px solid transparent;
+            transform: skew(25deg);
+        }
+
+        .capsule .base {
+            position: absolute;
+            left: 0;
+            top: 62px;
+            width: 112px;
+            height: 99px;
+            background: linear-gradient(to right, #f3f3f3 63%, #e0e0e0 63%);
+        }
+
+        .window-big {
+            width: 70px;
+            height: 70px;
+            background: #743388;
+            border-radius: 50%;
+            position: absolute;
+            top: 57px;
+            left: 66px;
+            z-index: 110;
+        }
+
+        .window-small {
+            width: 44px;
+            height: 44px;
+            display: block;
+            background: #000;
+            background-size: 44px;
+            border-radius: 50%;
+            position: absolute;
+            top: 70px;
+            left: 79px;
+            z-index: 120;
+            transform: rotate(-30deg);
+        }
+
+        .wing-left {
+            position: absolute;
+            left: 16px;
+            top: 82px;
+            height: 103px;
+            width: 0;
+            padding: 0;
+            border-right: 38px solid #743388;
+            border-bottom: 19px solid transparent;
+            border-top: 21px solid transparent;
+        }
+
+        .wing-left:after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-right: 50px solid #1d1d1d;
+            border-bottom: 50px solid transparent;
+        }
+
+        .wing-right {
+            position: absolute;
+            height: 97px;
+            width: 0;
+            padding: 0;
+            top: 67px;
+            right: 30px;
+            border-right: 40px solid #7c3388;
+            border-bottom: 15px solid transparent;
+            border-top: 0px solid transparent;
+            transform: rotate(-10deg) skew(-5deg);
+        }
+
+        .wing-right:after {
+            content: '';
+            position: absolute;
+            top: -33px;
+            left: -58px;
+            width: 101px;
+            height: 0;
+            border-top: 23px solid transparent;
+            border-right: 68px solid #1d1d1d;
+            border-bottom: 45px solid transparent;
+        }
+
+        .tail {
+            position: absolute;
+            width: 101px;
+            height: 0;
+            top: 153px;
+            left: 51px;
+            border-top: 23px solid #743388;
+            border-left: 9px solid transparent;
+            border-right: 10px solid transparent;
+            z-index: 100;
+        }
+
+        .fire-1 {
+            position: absolute;
+            z-index: 90;
+            left: 64px;
+            top: 169px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ef8832 50%, #e82134 50%);
+            transform: rotate(-40deg) skew(1deg, -11deg);
+            animation: main_fire 0.1s ease-in infinite;
+        }
+
+        @keyframes main_fire {
+            0% {
+                transform: translate(0, 5px) scale(1.1, 1) rotate(-33deg) skew(0deg, -30deg)
+            }
+
+            100% {
+                transform: translate(0, 0) scale(1.1, 2) rotate(-33deg) skew(0deg, -30deg)
+            }
+        }
+
+        .fire-2 {
+            position: absolute;
+            z-index: 90;
+            left: 63px;
+            top: 230px;
+            width: 33px;
+            height: 33px;
+            background: linear-gradient(135deg, #ef8832 50%, #e82134 50%);
+            transform: rotate(-33deg) skew(1deg, -30deg);
+            animation: fire-2 0.3s ease-in infinite;
+        }
+
+        @keyframes fire-2 {
+            0% {
+                transform: translate(0, -10px) scale(1) rotate(-33deg) skew(0deg, -30deg);
+                opacity: 1
+            }
+
+            100% {
+                transform: translate(0, 50px) scale(0.7) rotate(-33deg) skew(0deg, -30deg);
+                opacity: 0
+            }
+        }
+
+        .fire-3 {
+            position: absolute;
+            z-index: 90;
+            left: 50px;
+            top: 196px;
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, #ef8832 50%, #e82134 50%);
+            transform: rotate(-33deg) skew(1deg, -30deg);
+            animation: fire-2 0.3s 0.2s ease-in infinite;
+        }
+
+        .fire-4 {
+            position: absolute;
+            z-index: 90;
+            left: 126px;
+            top: 200px;
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, #ef8832 50%, #e82134 50%);
+            transform: rotate(-33deg) skew(1deg, -30deg);
+            animation: fire-2 0.3s 0.1s ease-in infinite;
+        }
+
+        .spark-1 {
+            position: absolute;
+            left: 40px;
+            bottom: 77px;
+            width: 12px;
+            height: 12px;
+            background: #e82134;
+            animation: spark-fire 0.24s infinite;
+        }
+
+        .spark-2 {
+            position: absolute;
+            left: 132px;
+            bottom: 68px;
+            width: 10px;
+            height: 10px;
+            background: #ef8b32;
+            animation: spark-fire 0.24s 0.12s infinite;
+        }
+
+        .spark-3 {
+            position: absolute;
+            left: 109px;
+            bottom: 80px;
+            width: 10px;
+            height: 10px;
+            background: #e82134;
+            animation: spark-fire 0.24s infinite;
+        }
+
+        .spark-4 {
+            position: absolute;
+            left: 83px;
+            bottom: 20px;
+            width: 10px;
+            height: 10px;
+            background: #ef8b32;
+            animation: spark-fire 0.24s infinite;
+        }
+
+        @keyframes spark-fire {
+            0% {
+                transform: translate(0, -10px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(0, 50px);
+                opacity: 0;
+            }
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FC97E9 20%, #FAFC9F 80%, #BDF4F9 100%) fixed;
+            animation: space 0.4s infinite;
+        }
+
+        .star-1 {
+            left: 55px;
+            top: -10px;
+            animation-delay: 0.1s
+        }
+
+        .star-2 {
+            left: 60px;
+            top: 90px;
+            animation-delay: 0.12s
+        }
+
+        .star-3 {
+            left: 80px;
+            top: 35px;
+            animation-delay: 0.15s
+        }
+
+        .star-4 {
+            left: 130px;
+            top: 280px;
+            animation-delay: 0.1s
+        }
+
+        .star-5 {
+            left: 140px;
+            top: 300px;
+            animation-delay: 0.34s
+        }
+
+        .star-6 {
+            left: 51px;
+            top: 60px;
+            animation-delay: 0.46s
+        }
+
+        .star-7 {
+            left: -50px;
+            top: 40px;
+            animation-delay: 0.19s
+        }
+
+        .star-8 {
+            left: 150px;
+            top: -10px;
+            animation-delay: 0.23s
+        }
+
+        .star-9 {
+            left: 50px;
+            top: 300px;
+            animation-delay: 0.32s
+        }
+
+        .star-10 {
+            left: 70px;
+            top: 80px;
+            animation-delay: 0.1s
+        }
+
+        .star-11 {
+            left: 57px;
+            top: 330px;
+            animation-delay: 0.25s
+        }
+
+        .star-12 {
+            left: 80px;
+            top: 200px;
+            animation-delay: 0.45s
+        }
+
+        .star-13 {
+            left: 60px;
+            top: 50px;
+            animation-delay: 0.17s
+        }
+
+        .star-14 {
+            left: 90px;
+            top: -10px;
+            animation-delay: 0.3s
+        }
+
+        .star-15 {
+            left: 80px;
+            top: 300px;
+            animation-delay: 0.55s
+        }
+
+        .star-16 {
+            left: 100px;
+            top: 290px;
+            animation-delay: 0.15s
+        }
+
+        .star-17 {
+            left: 400px;
+            top: 30px;
+            animation-delay: 0.2s
+        }
+
+        .star-18 {
+            left: 130px;
+            top: 260px;
+            animation-delay: 0.1s
+        }
+
+        .star-19 {
+            left: 111px;
+            top: 80px;
+            animation-delay: 0.5s
+        }
+
+        .star-20 {
+            left: 70px;
+            top: 100px;
+            animation-delay: 0.4s
+        }
+
+        @keyframes space {
+            0% {
+                transform: translate(0, -100px) scale(1, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(0, 100px) scale(1, 1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="roket-container">
+        <div class="wing-left"></div>
+        <div class="wing-right"></div>
+        <div class="tail"></div>
+        <div class="capsule">
+            <div class="top">
+                <div class="shadow"></div>
+            </div>
+            <div class="base"></div>
+        </div>
+        <div class="window-big"></div>
+        <div class="window-small"></div>
+        <div class="fire-1"></div>
+        <div class="fire-2"></div>
+        <div class="fire-3"></div>
+        <div class="fire-4"></div>
+        <div class="spark-1"></div>
+        <div class="spark-2"></div>
+        <div class="spark-3"></div>
+        <div class="spark-4"></div>
+        <div class="star star-1"></div>
+        <div class="star star-2"></div>
+        <div class="star star-3"></div>
+        <div class="star star-4"></div>
+        <div class="star star-5"></div>
+        <div class="star star-6"></div>
+        <div class="star star-7"></div>
+        <div class="star star-8"></div>
+        <div class="star star-9"></div>
+        <div class="star star-10"></div>
+        <div class="star star-11"></div>
+        <div class="star star-12"></div>
+        <div class="star star-13"></div>
+        <div class="star star-14"></div>
+        <div class="star star-15"></div>
+        <div class="star star-16"></div>
+        <div class="star star-17"></div>
+        <div class="star star-18"></div>
+        <div class="star star-19"></div>
+        <div class="star star-20"></div>
+    </div>
+</body>
+
+</html>

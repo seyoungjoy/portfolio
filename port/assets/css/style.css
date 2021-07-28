@@ -2099,13 +2099,25 @@ input[type="range"]::-webkit-slider-thumb{
 }
 .s6_cont li{
     width:45%;
-    
-    
     margin-bottom:5vh;
 }
 .s6_cont li .animation{
     width:100%;
     height:700px;
+    margin-bottom: 1vh;
+}
+.s6_cont li .animation iframe{
+    border: none;
+}
+.s6_cont li .s6_title{
+    
+}
+.s6_cont li .s6_title p:first-child{
+    font-size: 2vw;
+}
+.s6_cont li .s6_title p:last-child{
+    font-family: var(--sub-font);
+    font-size: 16px;
 }
 
 

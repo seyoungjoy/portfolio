@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - I was tired.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise&amp;display=swap'>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            background: #000;
+            height: 97vh;
+            overflow: hidden;
+            display: -webkit-box;
+            display: flex;
+            font-family: 'Waiting for the Sunrise', cursive;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .tierd {
+            position: relative;
+            font-size: 15rem;
+            -webkit-filter: url(#filter) blur(3px) contrast(10);
+            filter: url(#filter) blur(3px) contrast(10);
+            background: #000;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            padding: 100px;
+            -webkit-transform: rotateZ(5deg);
+            transform: rotateZ(5deg);
+        }
+
+        .tierd::before {
+            content: 'tired';
+            position: absolute;
+            -webkit-transform: translate(7px, 13px);
+            transform: translate(7px, 13px);
+            -webkit-filter: blur(10px);
+            filter: blur(10px);
+        }
+
+        .svg {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="tierd">tired</div>
+    <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+        <filter id="filter">
+            <feTurbulence type="turbulence" baseFrequency="0" id="turbulence" numOctaves="1" result="turbulence"
+                seed="5">
+                <animate id="noiseAnimate" attributeName="baseFrequency" values="0.02; 0.04; 0.02" calcMode="spline"
+                    keySplines="0.42 0.0 0.58 1.0;0.42 0.0 0.58 1.0" dur="15s" repeatCount="indefinite"></animate>
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="B">
+            </feDisplacementMap>
+        </filter>
+    </svg>
+    <!-- partial -->
+
+</body>
+
+</html>
