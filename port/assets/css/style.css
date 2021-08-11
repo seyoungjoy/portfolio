@@ -152,6 +152,7 @@ body{
     background: rgba(32, 114, 90, 0);
     border:1px solid #20725A;
 }
+
   /* 메뉴 오버레이 */
 .menu-wrap{
     width:100%;
@@ -283,8 +284,8 @@ body{
     width: 100%;
     position: fixed;
     text-align: center;
-    -webkit-transition: opacity 0.8s ease-in-out;
-    transition: opacity 0.8s ease-in-out;
+    -webkit-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
     z-index: 7000;
     opacity: 0;
     visibility: hidden;
@@ -329,10 +330,32 @@ body{
 .overlay-content p a{
     position: relative;
     z-index:100;
-    transition: all 0.5s;
+    transition: all 1s;
 }
 .overlay-content p a:hover{
     color:#20725A;
+}
+.overlay-content p .menu-check{
+    position: absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:auto;
+    height:13vh;
+}
+.overlay-content p:nth-child(4) .menu-check{
+    height:16vh;
+    top:-10px;
+}
+.overlay-content p .menu-check path{
+    opacity: 0;
+}
+.overlay-content p:hover .menu-check path{
+    opacity:1;
+    stroke-dasharray:3000;
+    stroke-dashoffset: 3000;
+    animation: check 1s linear forwards;
+    transition: all cubic-bezier(0, 0.51, 0.36, 1);
 }
 
 .overlay-content .sns{
@@ -1350,6 +1373,7 @@ input[type="range"]::-webkit-slider-thumb{
 #play .fa-play{
     margin-left: 0.4vw;
 }
+
 .show_song_no{
     position: absolute;
     top: 2%;
@@ -1773,29 +1797,13 @@ input[type="range"]::-webkit-slider-thumb{
 .k_cont:nth-child(6) .hover-button:before {
     content: '코딩왕 \1F451';
 }
-.swiper-container-pointer-events {
-    touch-action: pan-y;
-}
+
 .keyword_pt{
     width:100%;
     height:25vw;
 }
 
-.swiper-slide{
 
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
 .swiper-slide img{
     display: block;
     width: 25vw;
@@ -1850,6 +1858,9 @@ input[type="range"]::-webkit-slider-thumb{
     transition: cubic-bezier(0, 0.51, 0.36, 1);
 }
 @keyframes check {
+    from{
+        stroke-dashoffset: 3000;
+    }
     to {
       stroke-dashoffset: 0;
     }

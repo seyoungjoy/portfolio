@@ -136,16 +136,6 @@ $(window).scroll(function(){
 
 });
 
-// 이미지 바꾸기
-// var onScrollHandler = function() {
-//     var newImageUrl = document.getElementById("sec3picture").src;
-//     let scrollTop = $(window).scrollTop() + $(window).height();
-//     if( scrollTop >  $(".skill_tit").offset().top ){
-//         newImageUrl = "assets/img/skillme.jpg";
-//     }
-//   };
-// object.addEventListener ("scroll", onScrollHandler);
-
 $(window).scroll(function(){
     //section3 스킬 영역
     let scroll = $(window).scrollTop()
