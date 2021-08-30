@@ -3,10 +3,10 @@ function imagesProgress () {
     var $container = $('#load'),            
         $progressText = $container.find('.load-text'), 
 
-        imgLoad = imagesLoaded('body'),//이미지 로딩을 모니터링
-        imgTotal = imgLoad.images.length,//body 전체 이미지갯수
-        imgLoaded  = 0,// 읽은 이미지갯수
-        current = 0,//현재 진행률 
+        imgLoad = imagesLoaded('body'),
+        imgTotal = imgLoad.images.length,
+        imgLoaded  = 0,
+        current = 0,
         progressTimer = setInterval(updateProgress, 1000 / 60);
 
         imgLoad.on('progress', function () {
@@ -15,14 +15,13 @@ function imagesProgress () {
 
         function updateProgress () {
             var target = (imgLoaded / imgTotal) * 100;
-            current += (target - current) * 0.1; //부드러운 여유
+            current += (target - current) * 0.1; 
             $progressText.text(Math.floor(current) + '%');
 
             if(current >= 100){
                 clearInterval(progressTimer);
 
-                gsap.to("#load", {top: "-100%"})
-
+                gsap.to("#load", {top: "-100%"});
                 setTimeout(function(){
                 let tl = gsap.timeline();
                 tl.to("#header", {duration: 0.4, stagger: 0.05, opacity: 1, y: 0})
